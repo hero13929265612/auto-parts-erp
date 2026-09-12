@@ -1,0 +1,18 @@
+# ===== Render 一键部署配置（配合 Neon 永久免费数据库）=====
+# 用法：把 cloud-version 文件夹的内容推送到 GitHub 仓库，然后在 Render 控制台选 "Blueprint" 导入本文件即可。
+# 数据库：使用 Neon 免费数据库（无过期日期）。导入 Blueprint 时，页面会提示你填写两个值：
+#   - DATABASE_URL   ：粘贴你在 Neon 复制的连接串（postgresql://...）
+#   - ADMIN_PASSWORD ：你的 ERP 登录密码（自己设一个记得住的）
+services:
+  - type: web
+    name: auto-parts-erp
+    runtime: node
+    plan: free
+    buildCommand: npm install
+    startCommand: npm start
+    healthCheckPath: /api/health
+    envVars:
+      - key: DATABASE_URL
+        sync: false
+      - key: ADMIN_PASSWORD
+        sync: false

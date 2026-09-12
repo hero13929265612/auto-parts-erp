@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>汽配进销存 ERP</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- 登录页 -->
+<div id="login-view" class="login-wrap">
+  <div class="login-card">
+    <div class="login-logo">汽配 ERP</div>
+    <p class="login-sub">询价 · 比价 · 采购 · 销售 · 库存</p>
+    <input id="login-password" type="password" placeholder="请输入管理密码" autocomplete="current-password">
+    <button id="login-btn" class="btn btn-primary btn-block">登 录</button>
+    <div id="login-msg" class="login-msg"></div>
+  </div>
+</div>
+
+<!-- 主应用 -->
+<div id="app-view" style="display:none">
+  <aside class="sidebar">
+    <div class="logo">汽配 ERP</div>
+    <nav class="nav">
+      <button class="nav-btn active" data-page="home">工作台</button>
+      <button class="nav-btn" data-page="parts">配件档案</button>
+      <button class="nav-btn" data-page="suppliers">供应商</button>
+      <button class="nav-btn" data-page="customers">客户</button>
+      <button class="nav-btn" data-page="inquiries">询价比价</button>
+      <button class="nav-btn" data-page="purchases">采购入库</button>
+      <button class="nav-btn" data-page="sales">销售出库</button>
+      <button class="nav-btn" data-page="inventory">库存预警</button>
+    </nav>
+    <div class="sidebar-foot">
+      <button id="logout-btn" class="btn btn-ghost btn-block">退出登录</button>
+    </div>
+  </aside>
+
+  <main class="main">
+    <div id="page-home" class="page"></div>
+    <div id="page-parts" class="page" style="display:none"></div>
+    <div id="page-suppliers" class="page" style="display:none"></div>
+    <div id="page-customers" class="page" style="display:none"></div>
+    <div id="page-inquiries" class="page" style="display:none"></div>
+    <div id="page-purchases" class="page" style="display:none"></div>
+    <div id="page-sales" class="page" style="display:none"></div>
+    <div id="page-inventory" class="page" style="display:none"></div>
+  </main>
+</div>
+
+<!-- 通用弹窗 -->
+<div id="modal-mask" class="modal-mask" style="display:none">
+  <div class="modal">
+    <div class="modal-head">
+      <span id="modal-title"></span>
+      <button class="modal-close" onclick="closeModal()">×</button>
+    </div>
+    <div id="modal-body" class="modal-body"></div>
+    <div id="modal-actions" class="modal-actions"></div>
+  </div>
+</div>
+
+<div id="toast" class="toast"></div>
+
+<script src="app.js"></script>
+</body>
+</html>
